@@ -35,7 +35,7 @@ class Estoque(Base):
     id_produto = Column(Integer, primary_key=True)
     nome_produto = Column(String(100), nullable=False)
     quantidade = Column(Integer, nullable=False, default=0)
-    data_entrada = Column(DateTime, default=datetime.utcnow)
+    data_entrada = Column(DateTime, default=lambda: datetime.now(timezone.utc))
     descricao = Column(Text, nullable=True)
     marca_produto = Column(String(100), nullable=True)
     status_estoque = Column(Boolean, default=True)

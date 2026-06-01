@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maker Room - Produtos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="layout">
+        <aside class="sidebar">
+            <div>
+                <div class="brand">
+                    <span class="brand-logo">MR</span>
+                    <div class="brand-text">Maker Room</div>
+                </div>
+
+                <ul class="nav-links">
+                    <li>HOME</li>
+                    <li class="active">PRODUTOS</li>
+                    <li>CATEGORIAS</li>
+                </ul>
+            </div>
+
+            <div class="sidebar-footer">SAIR</div>
+        </aside>
+
+        <main class="content">
+            <div class="content-header">
+                <div class="search-wrapper">
+                    <span>🔍</span>
+                    <input type="search" placeholder="Pesquisar Produto...">
+                </div>
+                <div class="profile">
+                    <img src="https://via.placeholder.com/150/0d38a0/ffffff?text=R" alt="Avatar">
+                    <div class="profile-name">Renatão Silva</div>
+                </div>
+            </div>
+
+            <section class="card">
+                <div class="card-top">
+                    <h1 class="card-title">Produtos</h1>
+                    <button class="btn-new">+ Novo</button>
+                </div>
+
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nome</th>
+                                <th>Especificação</th>
+                                <th>Quantidade</th>
+                                <th>Categoria</th>
+                                <th>Status</th>
+                                <th>Marca</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="table-row">
+                                <td>01</td>
+                                <td>Dell Latitude</td>
+                                <td>TI</td>
+                                <td>30</td>
+                                <td>Manutenção</td>
+                                <td><span class="status-pill">Ativo</span></td>
+                                <td>Ex</td>
+                                <td>
+                                    <span class="action-pill">Editar</span>
+                                    <span class="desativar" style="margin-left: 10px;">Desativar</span>
+                                </td>
+                            </tr>
+                            <tr class="table-row">
+                                <td>02</td>
+                                <td>Fluke Digital</td>
+                                <td>TI</td>
+                                <td>13</td>
+                                <td>Manutenção</td>
+                                <td><span class="status-pill">Ativo</span></td>
+                                <td>Ex</td>
+                                <td>
+                                    <span class="action-pill">Editar</span>
+                                    <span class="desativar" style="margin-left: 10px;">Desativar</span>
+                                </td>
+                            </tr>
+                            <tr class="table-row">
+                                <td>03</td>
+                                <td>Cisco Meraki</td>
+                                <td>TI</td>
+                                <td>30</td>
+                                <td>Manutenção</td>
+                                <td><span class="status-pill">Ativo</span></td>
+                                <td>Ex</td>
+                                <td>
+                                    <span class="action-pill">Editar</span>
+                                    <span class="desativar" style="margin-left: 10px;">Desativar</span>
+                                </td>
+                            </tr>
+                            <tr class="table-row">
+                                <td>04</td>
+                                <td>Makita</td>
+                                <td>TI</td>
+                                <td>34</td>
+                                <td>Manutenção</td>
+                                <td><span class="status-pill">Ativo</span></td>
+                                <td>Ex</td>
+                                <td>
+                                    <span class="action-pill">Editar</span>
+                                    <span class="desativar" style="margin-left: 10px;">Desativar</span>
+                                </td>
+                            </tr>
+                            <tr class="table-row">
+                                <td>05</td>
+                                <td>Nitro V15</td>
+                                <td>TI</td>
+                                <td>30</td>
+                                <td>Manutenção</td>
+                                <td><span class="status-pill">Ativo</span></td>
+                                <td>Ex</td>
+                                <td>
+                                    <span class="action-pill">Editar</span>
+                                    <span class="desativar" style="margin-left: 10px;">Desativar</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

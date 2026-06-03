@@ -164,3 +164,47 @@ def realizar_login(email_digitado, senha_digitada):
     else:
         print("E-mail ou senha incorretos.")
         return None
+    
+    # ==========================================
+# BLOCO DE TESTE DA INSERÇÃO E LOGIN
+# ==========================================
+
+if __name__ == "__main__":
+    print("--- 1. Inicializando o Banco de Dados ---")
+    init_db()  # Cria as tabelas se não existirem
+
+    # Dados fakes para o teste
+    nome_teste = "Carlos Silva"
+    email_teste = "carlos@email.com"
+    senha_teste = "estoque2026"
+    funcao_teste = "Operador"
+    matricula_teste = "MAT-999"
+
+    print("\n--- 2. Testando a inserção de usuário ---")
+    try:
+        # Chama a sua função de cadastro
+        id_gerado = cadastrar_usuario(
+            nome=nome_teste,
+            email=email_teste,
+            senha=senha_teste,
+            funcao=funcao_teste,
+            matricula=matricula_teste
+        )
+        print(f"[SUCESSO] Usuário cadastrado! ID gerado no banco: {id_gerado}")
+
+    except sqlite3.IntegrityError:
+        # Como o e-mail e matrícula são UNIQUE, se você rodar o teste 2 vezes vai cair aqui
+        print("[AVISO] O usuário de teste já estava cadastrado no banco de dados.")
+
+    print("\n--- 3. Testando o Login (Dados Corretos) ---")
+    # Tenta logar com o e-mail e a senha que acabamos de cadastrar
+    usuario_logado = realizar_login(email_teste, senha_teste)
+    
+    if usuario_logado:
+        print(f"[SUCESSO] Retorno da função: {usuario_logado}")  # Deve printar (id, nome)
+    else:
+        print("[ERRO] O login deveria ter funcionado!")
+
+    print("\n--- 4. Testando o Login (Senha Errada) ---")
+    # Força um erro de senha para ver se a função bloqueia corretamente
+    realizar_login(email_teste, "senha_errada_123")

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maker Room - Editar Usuário</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='editar_produtos.css') }}">
+<body>
+    <div class="layout">
+        <main class="content">
+            <div class="content-header">
+                <div class="search-wrapper">
+                    <span>🔍</span>
+                    <input type="search" placeholder="Pesquisar Usuário...">
+                </div>
+                <div class="profile">
+                    <img src="{{url_for('static', filename='perfil.png')}}" alt="Avatar">
+                    <div class="profile-name">Renatão Silva</div>
+                </div>
+            </div>
+
+            <section class="card">
+                <div class="card-top">
+                    <h1 class="card-title">Editar Usuário</h1>
+                </div>
+
+                <form class="form-container">
+                    <div class="form-group">
+                        <label for="id_user">ID do Usuário</label>
+                        <input type="text" id="id_user" name="id_user" value="01" disabled>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nome">Nome Completo</label>
+                        <input type="text" id="nome" name="nome" placeholder="Digite o nome do usuário" value="Ana Silva" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" placeholder="exemplo@email.com" value="ana.silva@email.com" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="matricula">Matrícula</label>
+                            <input type="text" id="matricula" name="matricula" placeholder="Digite a matrícula" value="2026001" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="funcao">Função / Cargo</label>
+                            <select id="funcao" name="funcao" required>
+                                <option value="">Selecione uma função</option>
+                                <option value="Administrador" selected>Administrador</option>
+                                <option value="Operador">Operador</option>
+                                <option value="Supervisor">Supervisor</option>
+                                <option value="Aluno">Aluno</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="senha">Nova Senha (deixe em branco para não alterar)</label>
+                        <input type="password" id="senha" name="senha" placeholder="Digite uma nova senha se desejar alterar">
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-salvar">✓ Salvar Alterações</button>
+                        <button type="reset" class="btn-cancelar">✕ Cancelar</button>
+                    </div>
+                </form>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

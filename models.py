@@ -31,13 +31,13 @@ def init_db() -> None:
             );
         ''')
         
-        # 2. Tabela de Categorias
+        # Tabela de Categorias
         cursor.execute('''
             CREATE TABLE IF NOT EXISTS categoria (
                 id_categoria INTEGER PRIMARY KEY AUTOINCREMENT,
                 nome_categoria TEXT NOT NULL,
                 status_categoria BOOLEAN NOT NULL DEFAULT 1,
-                criado_em TEXT NOT NULL
+                criado_em DATETIME NOT NULL
             );
         ''')
         
@@ -47,14 +47,14 @@ def init_db() -> None:
                 id_produto INTEGER PRIMARY KEY AUTOINCREMENT,
                 nome_produto TEXT NOT NULL,
                 quantidade INTEGER NOT NULL DEFAULT 0,
-                data_entrada TEXT NOT NULL,
+                data_entrada DATETIME NOT NULL,
                 descricao TEXT,
                 marca_produto TEXT,
                 status_estoque BOOLEAN NOT NULL DEFAULT 1,
                 id_categoria INTEGER NOT NULL,
                 id_user INTEGER NOT NULL,
-                criado_em TEXT NOT NULL,
-                atualizado_em TEXT NOT NULL,
+                criado_em DATETIME NOT NULL,
+                atualizado_em DATETIME NOT NULL,
                 FOREIGN KEY (id_categoria) REFERENCES categoria(id_categoria) ON DELETE CASCADE,
                 FOREIGN KEY (id_user) REFERENCES usuario(id_user) ON DELETE CASCADE
             );
@@ -66,7 +66,7 @@ def init_db() -> None:
                 id_imagem INTEGER PRIMARY KEY AUTOINCREMENT,
                 id_produto INTEGER NOT NULL,
                 caminho_imagem TEXT NOT NULL,
-                criado_em TEXT NOT NULL,
+                criado_em DATETIME NOT NULL,
                 FOREIGN KEY (id_produto) REFERENCES estoque(id_produto) ON DELETE CASCADE
             );
         ''')

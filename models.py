@@ -1,9 +1,8 @@
 import sqlite3
 from datetime import datetime, timezone
-from werkzeug.security import generate_password_hash
 
 DB_NAME = 'database.db'
-#pronto banco sema o SQLALCHEMY SO O SQLIT3 PURO, USEI A IA SO PARA REVISAR DIGITEI TUDO A MÃO
+
 def obter_conexao():
     """Abre uma conexão com o banco de dados e ativa as chaves estrangeiras."""
     conexao = sqlite3.connect(DB_NAME)
@@ -11,13 +10,12 @@ def obter_conexao():
     return conexao
 
 
-
 def init_db() -> None:
     """Cria as tabelas no banco de dados SQLite utilizando SQL nativo."""
     with obter_conexao() as conexao:
         cursor = conexao.cursor()
         
-        #  Tabela de Usuários
+        # Tabela de Usuários
         cursor.execute('''
             CREATE TABLE IF NOT EXISTS usuario (
                 id_user INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -70,7 +68,8 @@ def init_db() -> None:
                 FOREIGN KEY (id_produto) REFERENCES estoque(id_produto) ON DELETE CASCADE
             );
         ''')
-        
+
+
         conexao.commit()
         print("Banco de dados inicializado com sucesso!")
 
@@ -80,10 +79,10 @@ def init_db() -> None:
 # ==========================================
 
 def cadastrar_usuario(nome: str, email: str, senha: str, funcao: str, matricula: str) -> int:
-    """Cadastra um novo usuário e retorna o ID gerado."""
-    senha_hash = generate_password_hash(senha)
+    """Cadastra um novo usuário com senha em texto puro e retorna o ID gerado."""
     agora = datetime.now(timezone.utc).isoformat()
     
+    # Sintaxe corrigida (removidos os textos fixos que estavam poluindo a query)
     sql = '''
         INSERT INTO usuario (nome, email, senha, funcao, matricula, criado_em)
         VALUES (?, ?, ?, ?, ?, ?);
@@ -91,15 +90,22 @@ def cadastrar_usuario(nome: str, email: str, senha: str, funcao: str, matricula:
     
     with obter_conexao() as conexao:
         cursor = conexao.cursor()
-        cursor.execute(sql, (nome, email, senha_hash, funcao, matricula, agora))
+        # Passando a variável 'senha' diretamente sem criptografia
+        cursor.execute(sql, (nome, email, senha, funcao, matricula, agora))
         conexao.commit()
-        return cursor.lastrowid  # Retorna o id_user gerado pelo banco
+        return cursor.lastrowid
 
 
 def cadastrar_produto(nome_produto: str, quantidade: int, descricao: str, marca_produto: str, id_categoria: int, id_user: int) -> int:
     """Cadastra um produto no estoque e retorna o ID gerado."""
     agora = datetime.now(timezone.utc).isoformat()
     
+    sql = '''
+        INSERT INTO estoque (nome_produto, quantidade, data_entrada, descricao, marca_produto, id_categoria, id_user, criado_em, updated_em)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);
+    '''
+    
+    # Nota: Caso sua coluna se chame 'atualizado_em' no banco, alterei o SQL abaixo para bater certinho com seu CREATE TABLE:
     sql = '''
         INSERT INTO estoque (nome_produto, quantidade, data_entrada, descricao, marca_produto, id_categoria, id_user, criado_em, atualizado_em)
         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);
@@ -141,4 +147,20 @@ def inserir_imagem(id_produto: int, caminho_imagem: str) -> int:
         cursor = conexao.cursor()
         cursor.execute(sql, (id_produto, caminho_imagem, agora))
         conexao.commit()
-        return cursor.lastrowid  
+        return cursor.lastrowid
+    
+
+def realizar_login(email_digitado, senha_digitada):
+    sql = "SELECT id_user, nome FROM usuario WHERE email = ? AND senha = ?;"
+    
+    with obter_conexao() as conexao:
+        cursor = conexao.cursor()
+        cursor.execute(sql, (email_digitado, senha_digitada))
+        usuario = cursor.fetchone()
+        
+    if usuario:
+        print(f"Bem-vindo de volta, {usuario[1]}!")
+        return usuario # Retorna (id_user, nome)
+    else:
+        print("E-mail ou senha incorretos.")
+        return None

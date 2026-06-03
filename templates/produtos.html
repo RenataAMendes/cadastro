@@ -1,26 +1,35 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maker Room - Produtos</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='produtos.css') }}">
-</head>
-<body>
-    <div class="layout">
-        <main class="content">
-            <div class="content-header">
-                <div class="search-wrapper">
-                    <span>🔍</span>
-                    <input type="search" placeholder="Pesquisar Produto...">
-                </div>
-                <div class="profile">
-                    <img src="https://via.placeholder.com/150/0d38a0/ffffff?text=R" alt="Avatar">
-                    <div class="profile-name">Renatão Silva</div>
-                </div>
-            </div>
+{% extends "base.html" %}
 
-            <section class="card">
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='produtos.css') }}">
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const homeItem = document.querySelector('aside .menu li.selecionado');
+    if (homeItem) homeItem.classList.remove('selecionado');
+
+    const menuItems = document.querySelectorAll('aside .menu li');
+    menuItems.forEach(item => {
+        if (item.textContent.trim().toUpperCase() === 'PRODUTOS') {
+            item.classList.add('selecionado');
+        }
+    });
+});
+</script>
+{% endblock %}
+
+{% block content %}
+    <div class="content-header">
+        <div class="search-wrapper">
+            <span>🔍</span>
+            <input type="search" placeholder="Pesquisar Produto...">
+        </div>
+        <div class="profile">
+            <img src="https://via.placeholder.com/150/0d38a0/ffffff?text=R" alt="Avatar">
+            <div class="profile-name">Renatão Silva</div>
+        </div>
+    </div>
+
+    <section class="card">
                 <div class="card-top">
                     <h1 class="card-title">Produtos</h1>
                     <button class="btn-new">+ Novo</button>
@@ -110,7 +119,4 @@
                     </table>
                 </div>
             </section>
-        </main>
-    </div>
-</body>
-</html>
+{% endblock %}

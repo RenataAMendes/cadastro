@@ -9,7 +9,7 @@ init_db()
 
 @app.route("/")
 def login():
-    return render_template("login.html")
+    return render_template("editar_produtos.html")
 
 
 # @app.route("/home")

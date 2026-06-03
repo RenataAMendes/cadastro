@@ -33,11 +33,13 @@
                 <input type="password" placeholder="Senha">
                 <i class="fa-solid fa-lock"></i>
             </div>
-            <button>ENTRAR</button>
+            <button type="button" onclick="envio()">ENTRAR</button>
         </div>
     </div>
 
 </div>
+
+<script src="{{ url_for('static', filename='js/login.js') }}"></script>
 
 </body>
 </html>

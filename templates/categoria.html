@@ -1,797 +1,285 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categorias</title>
 
-<title>Categorias</title>
+    <link rel="stylesheet" href="/static/categoria.css">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-<style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
-}
-
-body{
-    background:#000;
-    overflow:hidden;
-}
-
-/* =========================
-MAIN
-========================= */
-
-.main{
-    width:100%;
-    height:100vh;
-    background:black;
-    padding:25px;
-    overflow:auto;
-}
-
-/* =========================
-TOPBAR
-========================= */
-
-.topbar{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-}
-
-.search-box{
-    width:420px;
-    height:65px;
-
-    border:5px solid white;
-    border-radius:40px;
-
-    display:flex;
-    align-items:center;
-
-    padding:0 20px;
-}
-
-.search-box input{
-    flex:1;
-    background:transparent;
-    border:none;
-    outline:none;
-    color:white;
-    font-size:22px;
-    font-weight:600;
-}
-
-.search-box input::placeholder{
-    color:white;
-}
-
-.search-icon{
-    color:white;
-    font-size:35px;
-}
-
-.user{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    color:white;
-    font-size:22px;
-}
-
-.avatar{
-    width:45px;
-    height:45px;
-    border-radius:50%;
-    background:#2950ff;
-}
-
-/* =========================
-HEADER
-========================= */
-
-.header-categorias{
-    margin-top:40px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-
-.header-categorias h1{
-    color:white;
-    font-size:50px;
-}
-
-.add-btn{
-    color:white;
-    font-size:80px;
-    cursor:pointer;
-    transition:0.3s;
-}
-
-.add-btn:hover{
-    transform:scale(1.1);
-}
-
-/* =========================
-CATEGORIAS
-========================= */
-
-.categorias{
-    display:flex;
-    flex-wrap:wrap;
-    gap:35px;
-    margin-top:30px;
-}
-
-.card{
-    width:260px;
-    height:70px;
-
-    border:2px solid white;
-    border-radius:25px;
-
-    padding:0 18px;
-
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-
-    color:white;
-
-    transition:0.3s;
-}
-
-.card:hover{
-    transform:scale(1.03);
-}
-
-.left{
-    display:flex;
-    align-items:center;
-    gap:12px;
-}
-
-.nome{
-    font-size:18px;
-    font-weight:600;
-    cursor:pointer;
-}
-
-.edit{
-    cursor:pointer;
-    font-size:22px;
-}
-
-/* =========================
-SWITCH
-========================= */
-
-.switch{
-    position:relative;
-    width:50px;
-    height:25px;
-}
-
-.switch input{
-    display:none;
-}
-
-.slider{
-    position:absolute;
-    cursor:pointer;
-
-    top:0;
-    left:0;
-    right:0;
-    bottom:0;
-
-    background:#777;
-    border-radius:50px;
-
-    transition:0.4s;
-}
-
-.slider::before{
-    content:"";
-
-    position:absolute;
-
-    width:18px;
-    height:18px;
-
-    left:4px;
-    top:3.5px;
-
-    background:white;
-    border-radius:50%;
-
-    transition:0.4s;
-}
-
-.switch input:checked + .slider{
-    background:#00ff66;
-}
-
-.switch input:checked + .slider::before{
-    transform:translateX(24px);
-}
-
-/* =========================
-PRODUTOS
-========================= */
-
-.produtos{
-    margin-top:40px;
-
-    display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
-    gap:20px;
-}
-
-.produto{
-    background:#101010;
-    border:2px solid white;
-    border-radius:20px;
-    padding:20px;
-    color:white;
-}
-
-.produto h3{
-    margin-bottom:10px;
-}
-
-.produto p{
-    color:#aaa;
-    margin-bottom:8px;
-}
-
-.preco{
-    color:#00ff66 !important;
-    font-size:20px;
-    font-weight:bold;
-}
-
-/* =========================
-MODAL
-========================= */
-
-.modal{
-    position:fixed;
-    inset:0;
-
-    background:rgba(0,0,0,0.88);
-
-    display:none;
-    align-items:center;
-    justify-content:center;
-
-    z-index:999;
-}
-
-.modal-content{
-
-    width:650px;
-    min-height:500px;
-
-    background:#000000;
-
-    padding:60px 70px;
-
-    position:relative;
-
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-}
-
-.modal-content h1{
-
-    color:white;
-
-    font-size:60px;
-    font-weight:700;
-
-    text-align:center;
-
-    margin-bottom:60px;
-}
-
-.modal-content label{
-
-    color:white;
-
-    font-size:24px;
-    font-weight:600;
-
-    margin-bottom:12px;
-}
-
-.modal-content input{
-
-    width:100%;
-    height:70px;
-
-    background:transparent;
-
-    border:2px solid white;
-    border-radius:8px;
-
-    padding:0 20px;
-
-    color:white;
-    font-size:24px;
-
-    outline:none;
-}
-
-.modal-content input::placeholder{
-    color:#d9d9d9;
-}
-
-.modal-buttons{
-
-    display:flex;
-    justify-content:center;
-
-    margin-top:80px;
-}
-
-.modal-buttons button{
-
-    width:260px;
-    height:70px;
-
-    border:3px solid white;
-    border-radius:50px;
-
-    background:transparent;
-
-    color:white;
-
-    font-size:24px;
-    font-weight:600;
-
-    cursor:pointer;
-
-    transition:0.3s;
-}
-
-.modal-buttons button:hover{
-
-    background:white;
-    color:#000000;
-}
-
-.fechar{
-
-    position:absolute;
-
-    left:40px;
-    top:35px;
-
-    color:white;
-
-    font-size:45px;
-    cursor:pointer;
-}
-
-/* =========================
-RESPONSIVO
-========================= */
-
-@media(max-width:700px){
-
-    .search-box{
-        width:100%;
-        height:55px;
-    }
-
-    .topbar{
-        flex-direction:column;
-        gap:20px;
-        align-items:flex-start;
-    }
-
-    .header-categorias h1{
-        font-size:35px;
-    }
-
-    .add-btn{
-        font-size:60px;
-    }
-
-    .modal-content{
-        width:95%;
-        padding:40px 25px;
-    }
-
-    .modal-content h1{
-        font-size:40px;
-    }
-
-    .modal-buttons button{
-        width:100%;
-    }
-}
-
-</style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
-<div class="main">
+<div class="container">
 
-    <!-- TOPBAR -->
+    <!-- SIDEBAR -->
 
-    <div class="topbar">
+    <aside class="sidebar">
 
-        <div class="search-box">
+        <div class="logo">
+            MAKER<br>ROOM
+        </div>
 
-            <input
-                type="text"
-                id="pesquisa"
-                placeholder="Pesquisar categoria..."
-            >
+        <nav>
 
-            <div class="search-icon">
-                ⌕
+            <a href="#">HOME</a>
+
+            <a href="#">PRODUTOS</a>
+
+            <a href="#" class="active">
+                CATEGORIAS
+            </a>
+
+        </nav>
+
+        <button class="btn-sair">
+            SAIR
+        </button>
+
+    </aside>
+
+    <!-- CONTEÚDO -->
+
+    <main class="content">
+
+        <!-- TOPO -->
+
+        <div class="topbar">
+
+            <div class="search-area">
+
+                <input
+                    type="text"
+                    placeholder="Pesquisar categoria..."
+                >
+
+                <span class="search-icon">⌕</span>
+
+            </div>
+
+            <div class="user">
+
+                <div class="avatar"></div>
+
+                <span>Renatão Silva</span>
+
             </div>
 
         </div>
 
-        <div class="user">
+        <!-- HEADER -->
 
-            <div class="avatar"></div>
+        <div class="header">
 
-            <span>Renatão Silva</span>
+            <div></div>
 
+           <button
+    class="add-btn"
+    onclick="abrirModal()"
+>
+    +
+</button>
         </div>
 
-    </div>
+        <!-- GRID -->
 
-    <!-- HEADER -->
-
-    <div class="header-categorias">
-
-        <h1>
-            Categorias
-        </h1>
-
-        <div
-            class="add-btn"
-            onclick="abrirModal()"
-        >
-            +
-        </div>
-
-    </div>
-
-    <!-- CATEGORIAS -->
-
-    <div class="categorias" id="categorias"></div>
-
-    <!-- PRODUTOS -->
-
-    <div class="produtos" id="produtos"></div>
-
-</div>
-
-<!-- MODAL -->
-
-<div class="modal" id="modal">
-
-    <div class="modal-content">
-
-        <div class="fechar" onclick="fecharModal()">
-            ←
-        </div>
-
-        <h1>
-            Adicionar Categoria
-        </h1>
-
-        <label>
-            Nome da Categoria
-        </label>
-
-        <input
-            type="text"
-            id="novaCategoria"
-            maxlength="15"
-            placeholder=""
-        >
-
-        <div class="modal-buttons">
-
-            <button onclick="salvarCategoria()">
-                Salvar Categoria
-            </button>
-
-        </div>
-
-    </div>
-
-</div>
-
-<script>
-
-/* =========================
-DADOS
-========================= */
-
-let categorias = [
-    {
-        nome:"Hardware",
-        ativo:true
-    },
-
-    {
-        nome:"Periféricos",
-        ativo:false
-    },
-
-    {
-        nome:"Monitores",
-        ativo:true
-    },
-
-    {
-        nome:"Celulares",
-        ativo:false
-    }
-]
-
-let produtos = [
-
-    {
-        nome:"RTX 4060",
-        categoria:"Hardware",
-        estoque:10,
-        preco:3200
-    },
-
-    {
-        nome:"Mouse Gamer",
-        categoria:"Periféricos",
-        estoque:25,
-        preco:120
-    },
-
-    {
-        nome:"Monitor 240Hz",
-        categoria:"Monitores",
-        estoque:5,
-        preco:1800
-    }
-
-]
-
-/* =========================
-RENDERIZAR
-========================= */
-
-function renderCategorias(){
-
-    const container =
-        document.getElementById("categorias")
-
-    container.innerHTML = ""
-
-    categorias.forEach((categoria,index)=>{
-
-        container.innerHTML += `
+        <div class="categorias">
 
             <div class="card">
+                <span>Categoria</span>
+                <div class="acoes">
+                    <span>✎</span>
 
-                <div class="left">
-
-                    <div class="nome"
-                        onclick="mostrarProdutos('${categoria.nome}')"
-                    >
-                        ${categoria.nome}
-                    </div>
-
-                    <div
-                        class="edit"
-                        onclick="editarCategoria(${index})"
-                    >
-                        ✎
-                    </div>
-
+                    <label class="switch">
+                        <input type="checkbox" checked>
+                        <span class="slider"></span>
+                    </label>
                 </div>
+            </div>
 
-                <label class="switch">
+            <div class="card">
+                <span>Categoria</span>
+                <div class="acoes">
+                    <span>✎</span>
 
-                    <input
-                        type="checkbox"
-                        ${categoria.ativo ? "checked" : ""}
-                        onchange="toggleCategoria(${index})"
-                    >
+                    <label class="switch">
+                        <input type="checkbox" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
 
-                    <span class="slider"></span>
+            <div class="card">
+                <span>Categoria</span>
+                <div class="acoes">
+                    <span>✎</span>
 
-                </label>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="card">
+                <span>Categoria</span>
+                <div class="acoes">
+                    <span>✎</span>
+
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="card">
+                <span>Categoria</span>
+                <div class="acoes">
+                    <span>✎</span>
+
+                    <label class="switch">
+                        <input type="checkbox" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="card">
+                <span>Categoria</span>
+                <div class="acoes">
+                    <span>✎</span>
+
+                    <label class="switch">
+                        <input type="checkbox" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="card">
+                <span>Categoria</span>
+                <div class="acoes">
+                    <span>✎</span>
+
+                    <label class="switch">
+                        <input type="checkbox" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="card">
+                <span>Categoria</span>
+                <div class="acoes">
+                    <span>✎</span>
+
+                    <label class="switch">
+                        <input type="checkbox" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="card">
+                <span>Categoria</span>
+                <div class="acoes">
+                    <span>✎</span>
+
+                    <label class="switch">
+                        <input type="checkbox" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+<!-- MODAL ADICIONAR CATEGORIA -->
+
+<div class="modal" id="modalCategoria">
+
+    <div class="modal-box">
+
+        <div class="modal-topo">
+
+            <span class="voltar" onclick="fecharModal()">
+                ←
+            </span>
+
+            <h1>Adicionar Categoria</h1>
+
+        </div>
+
+        <form>
+
+            <div class="campo">
+
+                <label>Nome Categoria</label>
+
+                <input
+                    type="text"
+                    name="nome"
+                >
 
             </div>
 
-        `
-    })
-}
+            <div class="campo">
 
-/* =========================
-PRODUTOS
-========================= */
+                <label>Descrição</label>
 
-function mostrarProdutos(nomeCategoria){
-
-    const area =
-        document.getElementById("produtos")
-
-    area.innerHTML = ""
-
-    let encontrados =
-        produtos.filter(
-            p => p.categoria === nomeCategoria
-        )
-
-    if(encontrados.length === 0){
-
-        area.innerHTML =
-        `
-            <h2 style="color:white;">
-                Nenhum produto encontrado
-            </h2>
-        `
-
-        return
-    }
-
-    encontrados.forEach(produto=>{
-
-        area.innerHTML += `
-
-            <div class="produto">
-
-                <h3>${produto.nome}</h3>
-
-                <p>
-                    Categoria:
-                    ${produto.categoria}
-                </p>
-
-                <p>
-                    Estoque:
-                    ${produto.estoque}
-                </p>
-
-                <p class="preco">
-                    R$ ${produto.preco}
-                </p>
+                <input
+                    type="text"
+                    name="descricao"
+                >
 
             </div>
 
-        `
-    })
-}
+            <div class="botoes">
 
-/* =========================
-ATIVAR / DESATIVAR
-========================= */
+                <button
+                    type="submit"
+                    class="btn-salvar"
+                >
+                    Salvar
+                </button>
 
-function toggleCategoria(index){
+                <button
+                    type="button"
+                    class="btn-cancelar"
+                    onclick="fecharModal()"
+                >
+                    Cancelar
+                </button>
 
-    categorias[index].ativo =
-        !categorias[index].ativo
+            </div>
 
-    renderCategorias()
-}
+        </form>
 
-/* =========================
-EDITAR
-========================= */
+    </div>
 
-function editarCategoria(index){
+</div>
 
-    let novoNome =
-        prompt(
-            "Novo nome:",
-            categorias[index].nome
-        )
-
-    if(novoNome){
-
-        categorias[index].nome = novoNome
-
-        renderCategorias()
-    }
-}
-
-/* =========================
-MODAL
-========================= */
+</body>
+</html>
+<script>
 
 function abrirModal(){
 
     document
-    .getElementById("modal")
-    .style.display = "flex"
+        .getElementById("modalCategoria")
+        .classList.add("ativo");
 }
 
 function fecharModal(){
 
     document
-    .getElementById("modal")
-    .style.display = "none"
-
-    document
-    .getElementById("novaCategoria")
-    .value = ""
+        .getElementById("modalCategoria")
+        .classList.remove("ativo");
 }
-
-function salvarCategoria(){
-
-    let nome =
-        document
-        .getElementById("novaCategoria")
-        .value
-
-    if(nome.trim() === ""){
-
-        alert("Digite um nome!")
-
-        return
-    }
-
-    categorias.push({
-        nome:nome,
-        ativo:true
-    })
-
-    renderCategorias()
-
-    fecharModal()
-}
-
-/* =========================
-PESQUISA
-========================= */
-
-document
-.getElementById("pesquisa")
-.addEventListener("input",function(){
-
-    let valor =
-        this.value.toLowerCase()
-
-    document
-    .querySelectorAll(".card")
-    .forEach(card=>{
-
-        let texto =
-            card.innerText.toLowerCase()
-
-        card.style.display =
-            texto.includes(valor)
-            ? "flex"
-            : "none"
-    })
-
-})
-
-/* =========================
-INIT
-========================= */
-
-renderCategorias()
 
 </script>
-
-</body>
-</html>

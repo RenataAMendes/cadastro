@@ -1,0 +1,383 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#000;
+    overflow:hidden;
+}
+
+.container{
+    display:flex;
+    width:100%;
+    height:100vh;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+    width:170px;
+    background:linear-gradient(
+        180deg,
+        #081d8f,
+        #2149d6
+    );
+
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+
+    padding:20px 0;
+}
+
+.logo{
+    color:white;
+    font-size:24px;
+    font-weight:600;
+    padding-left:35px;
+    line-height:1;
+}
+
+.sidebar nav{
+    display:flex;
+    flex-direction:column;
+}
+
+.sidebar nav a{
+    color:white;
+    text-decoration:none;
+    text-align:center;
+    padding:18px;
+    font-size:16px;
+}
+
+.sidebar nav a.active{
+    background:#2d58eb;
+}
+
+.btn-sair{
+    width:110px;
+    height:40px;
+    border:none;
+    border-radius:25px;
+    margin:0 auto;
+    cursor:pointer;
+
+    color:#1739b6;
+    font-size:18px;
+}
+
+/* CONTENT */
+
+.content{
+    flex:1;
+    padding:20px 50px;
+}
+
+/* TOPBAR */
+
+.topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.search-area{
+    margin:auto;
+
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
+
+.search-area input{
+    width:260px;
+    height:50px;
+
+    background:transparent;
+
+    border:5px solid #d9d9d9;
+    border-radius:30px;
+
+    color:white;
+
+    padding:0 20px;
+
+    font-size:18px;
+    font-weight:600;
+}
+
+.search-area input::placeholder{
+    color:white;
+}
+
+.search-icon{
+    color:white;
+    font-size:40px;
+}
+
+.user{
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    color:white;
+}
+
+.avatar{
+    width:30px;
+    height:30px;
+    border-radius:50%;
+    background:
+    linear-gradient(
+        red,
+        #ff6d6d,
+        #3d8bff
+    );
+}
+
+/* HEADER */
+
+.header{
+    display:flex;
+    justify-content:flex-end;
+    margin-top:10px;
+}
+
+.add-btn{
+    background:none;
+    border:none;
+    color:white;
+    font-size:80px;
+    cursor:pointer;
+}
+
+/* GRID */
+
+.categorias{
+
+    margin-top:40px;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:80px 80px;
+}
+
+.card{
+
+    width:180px;
+    height:50px;
+
+    border:2px solid white;
+    border-radius:20px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    color:white;
+
+    padding:0 10px;
+}
+
+.card span{
+    font-size:16px;
+    font-weight:600;
+}
+
+.acoes{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+/* SWITCH */
+
+.switch{
+    position:relative;
+    width:32px;
+    height:18px;
+}
+
+.switch input{
+    display:none;
+}
+
+.slider{
+    position:absolute;
+    inset:0;
+
+    background:#999;
+
+    border-radius:20px;
+}
+
+.slider::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:12px;
+    height:12px;
+
+    background:white;
+
+    border-radius:50%;
+
+    left:3px;
+    top:3px;
+
+    transition:.3s;
+}
+
+.switch input:checked + .slider{
+    background:#00e676;
+}
+
+.switch input:checked + .slider::before{
+    transform:translateX(14px);
+}
+/* ==========================
+MODAL
+========================== */
+
+.modal{
+
+    position:fixed;
+    inset:0;
+
+    background:rgba(0,0,0,.95);
+
+    display:none;
+
+    justify-content:center;
+    align-items:center;
+
+    z-index:9999;
+}
+
+.modal.ativo{
+    display:flex;
+}
+
+.modal-box{
+
+    width:700px;
+
+    display:flex;
+    flex-direction:column;
+}
+
+.modal-topo{
+
+    position:relative;
+
+    margin-bottom:70px;
+}
+
+.modal-topo h1{
+
+    text-align:center;
+
+    color:white;
+
+    font-size:55px;
+    font-weight:700;
+}
+
+.voltar{
+
+    position:absolute;
+
+    left:0;
+    top:0;
+
+    color:white;
+
+    font-size:50px;
+
+    cursor:pointer;
+}
+
+.campo{
+
+    width:100%;
+
+    margin-bottom:35px;
+}
+
+.campo label{
+
+    display:block;
+
+    color:white;
+
+    font-size:18px;
+    font-weight:600;
+
+    margin-bottom:12px;
+}
+
+.campo input{
+
+    width:100%;
+    height:65px;
+
+    background:transparent;
+
+    border:3px solid white;
+
+    color:white;
+
+    padding:0 20px;
+
+    font-size:18px;
+
+    outline:none;
+}
+
+.botoes{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:25px;
+
+    margin-top:50px;
+}
+
+.btn-salvar,
+.btn-cancelar{
+
+    width:170px;
+    height:50px;
+
+    border:2px solid white;
+    border-radius:30px;
+
+    background:transparent;
+
+    color:white;
+
+    font-size:20px;
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.btn-salvar:hover,
+.btn-cancelar:hover{
+
+    background:white;
+    color:black;
+}

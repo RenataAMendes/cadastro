@@ -7,13 +7,13 @@
 
 body {
     min-height: 100vh;
-    background: linear-gradient(135deg, #041a67 0%, #0b348f 45%, #081c5b 100%);
+    background: #000000;
     color: #f7f7fb;
 }
 
 .layout {
     display: grid;
-    grid-template-columns: 250px 1fr;
+    grid-template-columns: 1fr;
     min-height: 100vh;
 }
 
@@ -146,7 +146,7 @@ body {
 }
 
 .card {
-    background: rgba(255, 255, 255, 0.06);
+    background: linear-gradient(90deg, #3f2cc8 0%, rgba(39, 68, 171, 0.983) 100%);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 28px;
     padding: 26px;
@@ -232,8 +232,18 @@ tbody tr:hover {
 }
 
 .desativar {
-    background: #ff4e5a;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(90deg, #ff4e5a 0%, #f63743 100%);
     color: #fff;
+    cursor: pointer;
+    border: none;
+    border-radius: 999px;
+    padding: 6px 14px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
 }
 
 .action-pill {

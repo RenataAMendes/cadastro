@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maker Room</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    {% block head %}{% endblock %}
+</head>
+<body>
+    <aside>
+        <div>
+            <img class="logo" src="{{url_for('static', filename='logo.png')}}" alt="logo">
+
+            <nav class="menu">
+                <ul>
+                    <div class="menu-item">
+                        <li class="selecionado"><a href="">HOME</a></li>
+                        <li><a href="">PRODUTOS</a></li>
+                        <li><a href="">CATEGORIAS</a></li>
+                        <li><a href="">USUÁRIOS</a></li>
+                    </div>
+                </ul>
+            </nav>
+
+            <div class="buttom">
+                <button href="/logout">SAIR</button>
+            </div>
+        </div>
+    </aside>
+    
+    <main class="main-container">
+        <div class="layout">
+            <div class="content">
+                {% block content %}{% endblock %}
+            </div>
+            <div class="footer-accent"></div>
+        </div>
+    </main>
+
+</body>
+</html>

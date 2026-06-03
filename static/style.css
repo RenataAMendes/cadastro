@@ -119,6 +119,7 @@ main div{
     justify-content: end;
     cursor: pointer;
     padding: 10px 10px;
+    
 }
 
 .perfil img{
@@ -143,35 +144,41 @@ hr{
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: 0px;
     margin-top: 10px;
-    border: 2px solid #00a2ff;
-    border-radius: 5px;
-    box-shadow: 0 0 15px #009af3 inset 0 0 15px #00a2ff;
     width: 120px;
-    padding: 10px 0;
+    padding: 10px 10px;
     justify-content: center;
-    box-shadow: 
-                /* Sombras Internas (Inset) para brilho interno */
-                inset 0 0 10px #0033aa,
-                inset 0 0 20px #002277,
-                
-                /* Sombras Externas para o brilho expandido */
-                0 0 10px #0055ff,
-                0 0 25px #0033aa,
-                0 0 50px #001155;
-            
-            /* Transição suave caso queira colocar um efeito de hover depois */
-            transition: all 0.3s ease;
-        }
-
+        
+        background: rgba(172, 174, 180, 0.356); 
+  
+  /* 2. O Efeito de Vidro Fosco (Crucial) */
+    backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px); /* Suporte para Safari */
+  
+  /* 3. Borda Fina e Levemente Transparente */
+    border: 1px solid rgba(255, 255, 255, 0.445);
+  
+  /* 4. Arredondamento e Espaçamento interno */
+    border-radius: 16px;
+    padding: 10px;  
+  /* 5. Sombra suave para dar profundidade */
+    box-shadow: 0 8px 32px 0 rgba(114, 114, 114, 0.233);
+  
+  /* Mantém o comportamento interno correto */
+    color: #ffffff;
+    box-sizing: border-box;
+    position: relative;
+    }
 .produto img{
     width: 100px;
+
     border-radius: 5px;
 }
 
 .und{
-    width: 100%;
+    padding-left: 0;
+    width: 85px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -180,4 +187,43 @@ hr{
 .produto-box{
     display: flex;
     gap: 20PX;
+}
+
+
+.atividade{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    /* 1. Fundo Escuro e Semitransparente */
+    background: rgba(172, 174, 180, 0.356); 
+  
+  /* 2. O Efeito de Vidro Fosco (Crucial) */
+    backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px); /* Suporte para Safari */
+  
+  /* 3. Borda Fina e Levemente Transparente */
+    border: 1px solid rgba(255, 255, 255, 0.445);
+  
+  /* 4. Arredondamento e Espaçamento interno */
+    border-radius: 16px;
+    padding: 10px;  
+  /* 5. Sombra suave para dar profundidade */
+    box-shadow: 0 8px 32px 0 rgba(114, 114, 114, 0.233);
+  
+  /* Mantém o comportamento interno correto */
+    color: #ffffff;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.atividade img{
+    width: 35px;
+}
+
+.atividade-box{
+    padding-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 20px;
+    padding-right: 10px;
 }

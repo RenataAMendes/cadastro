@@ -6,34 +6,16 @@
     <title>Maker Room</title>
 </head>
 <body>
-    <aside>
-        <div>
-            <img class="logo" src="{{url_for('static', filename='logo.png')}}" alt="logo">
-
-            <nav class="menu">
-                <ul>
-                    <div class="menu-item">
-                        <li class="selecionado"><a href="">HOME</a></li>
-                        <li><a href="">PRODUTOS</a></li>
-                        <li><a href="">CATEGORIAS</a></li>
-                    </div>
-                </ul>
-            </nav>
-
-            <div class="buttom">
-                <button>SAIR</button>
-            </div>
-        </div>
-    </aside>
+    
     <main>
         <div class="perfil">
-            <img src="{{url_for('static', filename='perfil.png')}}"" alt="">
-            <a href="">Renatão Silva</a>
+            <img src="{{url_for('static', filename='perfil.png')}}" alt="">
+            <div class="profile-name">Renatão Silva</div>
         </div>
 
         <div class="bem-vindo">
             <h1>BEM-VINDO</h1>
-            <p>Painel central de gerenciamento e controle de equipamentos. Monitore em tempo real o status operacional de cada dispositivo, acompanhe sua atribuição aos usuários, visualize o histórico completo de utilização e mantenha o controle do estoque de forma organizada, garantindo mais eficiência, rastreabilidade e segurança nos processos.</p>
+            <div><p>Painel central de gerenciamento e controle de equipamentos. Monitore em tempo real o status operacional de cada dispositivo, acompanhe sua atribuição aos usuários, visualize o histórico completo de utilização e mantenha o controle do estoque de forma organizada, garantindo mais eficiência, rastreabilidade e segurança nos processos.</p></div>
         </div>
 
         <hr>
@@ -89,134 +71,117 @@
 
         <div>
             <h2>ATIVIDADES RECENTES</h2>
-            <div> 
-                <img src="" alt="">
-                <div>
-                    <h3>Renatão Silva</h3>
-                    <p>Desativou ARDUINO</p>
-                </div>
-            </div>
 
-            <div> 
-                <img src="" alt="">
-                <div>
-                    <h3>Mariana Costa</h3>
-                    <p>Adicionou SENSOR ULTRASSÔNICO</p>
+            <div class="atividade-box">
+                <div class="atividade"> 
+                    <img src="{{url_for('static', filename='perfil.png')}}" alt="">
+                    <div>
+                        <h3>Renatão Silva</h3>
+                        <p>Desativou ARDUINO</p>
+                    </div>
                 </div>
-            </div>
 
-            <div> 
-                <img src="" alt="">
-                <div>
-                    <h3>Lucas Almeida</h3>
-                    <p>Atualizou o estoque de LED RGB</p>
+                <div class="atividade"> 
+                    <img src="{{url_for('static', filename='perfil.png')}}" alt="">
+                    <div>
+                        <h3>Mariana Costa</h3>
+                        <p>Adicionou SENSOR ULTRASSÔNICO</p>
+                    </div>
                 </div>
-            </div>
 
-            <div> 
-                <img src="" alt="">
-                <div>
-                    <h3>Fernanda Souza</h3>
-                    <p>Removeu DISPLAY LCD</p>
+                <div class="atividade"> 
+                    <img src="{{url_for('static', filename='perfil.png')}}" alt="">
+                    <div>
+                        <h3>Lucas Almeida</h3>
+                        <p>Atualizou o estoque de LED RGB</p>
+                    </div>
                 </div>
-            </div>
 
-            <div> 
-                <img src="" alt="">
-                <div>
-                    <h3>Carlos Henrique</h3>
-                    <p>Ativou PROTOBOARD</p>
+                <div class="atividade"> 
+                    <img src="{{url_for('static', filename='perfil.png')}}" alt="">
+                    <div>
+                        <h3>Fernanda Souza</h3>
+                        <p>Removeu DISPLAY LCD</p>
+                    </div>
                 </div>
-            </div>
 
-            <div> 
-                <img src="" alt="">
-                <div>
-                    <h3>Ana Paula</h3>
-                    <p>Atualizou o estoque JUMPERS</p>
+                <div class="atividade"> 
+                    <img src="{{url_for('static', filename='perfil.png')}}" alt="">
+                    <div>
+                        <h3>Carlos Henrique</h3>
+                        <p>Ativou PROTOBOARD</p>
+                    </div>
                 </div>
-            </div>
 
-            <div> 
-                <img src="" alt="">
-                <div>
-                    <h3>João Victor</h3>
-                    <p>Desativou SERVO MOTOR</p>
+                <div class="atividade"> 
+                    <img src="{{url_for('static', filename='perfil.png')}}" alt="">
+                    <div>
+                        <h3>Ana Paula</h3>
+                        <p>Atualizou o estoque JUMPERS</p>
+                    </div>
                 </div>
-            </div>
 
-            <div> 
-                <img src="" alt="">
-                <div>
-                    <h3>Beatriz Lima</h3>
-                    <p>Cadastrou RELÉ</p>
+                <div class="atividade"> 
+                    <img src="{{url_for('static', filename='perfil.png')}}" alt="">
+                    <div>
+                        <h3>João Victor</h3>
+                        <p>Desativou SERVO MOTOR</p>
+                    </div>
+                </div>
+
+                <div class="atividade"> 
+                    <img src="{{url_for('static', filename='perfil.png')}}  " alt="">
+                    <div>
+                        <h3>Beatriz Lima</h3>
+                        <p>Cadastrou RELÉ</p>
+                    </div>
                 </div>
             </div>
         </div>
-
+        <hr>
         <div>
-            <h2>ALERTA DE ESTOQUE</h2>
-            <div> 
-                <img src="" alt="">
-                <div>
+            <h2>ALERTA DE ESTOQUE BAIXO</h2>
+            <div class="produto-box"> 
+                <div class="produto">
+                    <img src="{{url_for('static', filename='arduino.jpeg')}}"" alt="efawe">
                     <h3>ARDUINO</h3>
-                    <p>Estoque baixo: 10 unidades restantes</p>
+                    <div class="und"><p>UND</p> <p>10</p></div>
                 </div>
-            </div>
 
-            <div> 
-                <img src="" alt="">
-                <div>
-                    <h3>LED RGB</h3>
-                    <p>Estoque baixo: 5 unidades restantes</p>
+                <div class="produto">
+                    <img src="{{url_for('static', filename='arduino.jpeg')}}"" alt="efawe">
+                    <h3>ARDUINO</h3>
+                    <div class="und"><p>UND</p> <p>10</p></div>
                 </div>
-            </div>
 
-            <div> 
-                <img src="" alt="">
-                <div>
-                    <h3>SENSOR ULTRASSÔNICO</h3>
-                    <p>Estoque baixo: 3 unidades restantes</p>
+                <div class="produto">
+                    <img src="{{url_for('static', filename='arduino.jpeg')}}"" alt="efawe">
+                    <h3>ARDUINO</h3>
+                    <div class="und"><p>UND</p> <p>10</p></div>
                 </div>
-            </div>
 
-            <div> 
-                <img src="" alt="">
-                <div>
-                    <h3>DISPLAY LCD</h3>
-                    <p>Estoque baixo: 2 unidades restantes</p>
+                <div class="produto">
+                    <img src="{{url_for('static', filename='arduino.jpeg')}}"" alt="efawe">
+                    <h3>ARDUINO</h3>
+                    <div class="und"><p>UND</p> <p>10</p></div>
                 </div>
-            </div>
 
-            <div> 
-                <img src="" alt="">
-                <div>
-                    <h3>PROTOBOARD</h3>
-                    <p>Estoque baixo: 7 unidades restantes</p>
+                <div class="produto">
+                    <img src="{{url_for('static', filename='arduino.jpeg')}}"" alt="efawe">
+                    <h3>ARDUINO</h3>
+                    <div class="und"><p>UND</p> <p>10</p></div>
                 </div>
-            </div>
 
-            <div> 
-                <img src="" alt="">
-                <div>
-                    <h3>MÓDULO RELÉ</h3>
-                    <p>Estoque baixo: 4 unidades restantes</p>
+                <div class="produto">
+                    <img src="{{url_for('static', filename='arduino.jpeg')}}"" alt="efawe">
+                    <h3>ARDUINO</h3>
+                    <div class="und"><p>UND</p> <p>10</p></div>
                 </div>
-            </div>
 
-            <div> 
-                <img src="" alt="">
-                <div>
-                    <h3>SERVO MOTOR</h3>
-                    <p>Estoque baixo: 1 unidade restante</p>
-                </div>
-            </div>
-
-            <div> 
-                <img src="" alt="">
-                <div>
-                    <h3>JUMPER MACHO/FÊMEA</h3>
-                    <p>Estoque baixo: 6 unidades restantes</p>
+                <div class="produto">
+                    <img src="{{url_for('static', filename='arduino.jpeg')}}"" alt="efawe">
+                    <h3>ARDUINO</h3>
+                    <div class="und"><p>UND</p> <p>10</p></div>
                 </div>
             </div>
         </div>

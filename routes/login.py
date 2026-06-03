@@ -7,22 +7,21 @@ def login_routes(app):
     @app.route("/", methods=["GET", "POST"])
     @app.route("/login", methods=["GET", "POST"])
     def login():
+        if "usuario_id" in session:
+            return redirect(url_for("index"))
 
         if request.method == "POST":
-
             email = request.form.get("email")
             senha = request.form.get("senha")
 
-            # procura usuário comum
-            usuario = Usuario.query.filter_by(email=email).first()
+            usuario = Usuario.query.filter_by(email=email, senha=senha).first()
 
-            if usuario and usuario.senha == senha:
-                session.clear()
+            if usuario:
                 session["usuario_id"] = usuario.id
-                session["tipo"] = "usuario"
-                return redirect(url_for("home"))
-
-            flash("Login inválido")
+                flash("Login realizado com sucesso!", "success")
+                return redirect(url_for("index"))
+            else:
+                flash("E-mail ou senha incorretos.", "danger")
 
         return render_template("login.html")
 

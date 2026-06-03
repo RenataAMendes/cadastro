@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro Usuário</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='cadastro_usuario.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <div class="left-content">
+                <h1>Bem-vindo ao cadastro!</h1>
+                <p>
+                    Preencha seus dados para criar sua conta e começar a utilizar todas<br>
+                    as funcionalidades do sistema.
+                </p>
+            </div>
+        </div>
+
+        <div class="right">
+            <div class="login-box">
+                <h2>Cadastra-se</h2>
+
+                <form action="{{ url_for('cadastro') }}" method="POST">
+
+                    <div class="input-group">
+                        <input type="text" name="nome" placeholder="Nome Completo" required>
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="email" name="email" placeholder="Email" required>
+                        <i class="fa-solid fa-envelope"></i>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="password" name="senha" placeholder="Senha" required>
+                        <i class="fa-solid fa-lock"></i>
+                    </div>
+
+                    <div class="input-group">
+                        <select name="funcao" required>
+                            <option value="" selected disabled>Selecione a função</option>
+                            <option value="Administrador">Administrador</option>
+                            <option value="Operador">Operador</option>
+                            <option value="Usuário">Usuário</option>
+                        </select>
+                        <i class="fa-solid fa-briefcase"></i>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="text" name="Matricula" placeholder="Matrícula" required>
+                        <i class="fa-solid fa-id-card"></i>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="text" name="criado_em" placeholder="Criado em" required>
+                        <i class="fa-solid fa-calendar-days"></i>
+                    </div>
+
+                    <button type="submit">
+                        ENTRAR
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

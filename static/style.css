@@ -5,10 +5,14 @@
 
 body{
     font-family: Arial, sans-serif;
+    background-color: black;
+    color: white;
+
 }
 
 .logo{
     width: 120px;
+    
 }
 
 aside > div{
@@ -29,11 +33,14 @@ aside > div{
 
 .menu{
     margin-top: 10px;
+    width: 100%;
+
 }
 
-.menu ul li{
+.menu ul li {
     list-style: none;
     display: flex;
+    align-content: center;
 }
 
 .menu a{
@@ -50,6 +57,7 @@ aside > div{
     flex-direction: column;
     gap: 10px;
     padding-bottom: 30px;
+
 }
 
 .buttom button {
@@ -58,7 +66,9 @@ aside > div{
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    color: white;
+    color:#061b80;
+    font-size: 1.2rem;
+    border-radius: 80px;
 }
 
 .sair {
@@ -75,7 +85,23 @@ aside > div{
 }
 main {
     margin-left: 200px;
-    background-color: white;
+}
+
+main div{
+    padding-left: 20px;
+}
+
+.bem-vindo{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.bem-vindo p{
+    font-size: 1.3rem;
+    width: 65%;
+    line-height: 25px;
 }
 
 .selecionado a{
@@ -84,4 +110,74 @@ main {
     padding-right: 100%;
     height: 40px;
     align-content: center;
+}
+
+.perfil{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: end;
+    cursor: pointer;
+    padding: 10px 10px;
+}
+
+.perfil img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.perfil a{
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+}
+
+hr{
+    margin: 20px 0;
+    border: none;
+    border-top: 1px solid #ccc  ;
+}
+
+.produto{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-top: 10px;
+    border: 2px solid #00a2ff;
+    border-radius: 5px;
+    box-shadow: 0 0 15px #009af3 inset 0 0 15px #00a2ff;
+    width: 120px;
+    padding: 10px 0;
+    justify-content: center;
+    box-shadow: 
+                /* Sombras Internas (Inset) para brilho interno */
+                inset 0 0 10px #0033aa,
+                inset 0 0 20px #002277,
+                
+                /* Sombras Externas para o brilho expandido */
+                0 0 10px #0055ff,
+                0 0 25px #0033aa,
+                0 0 50px #001155;
+            
+            /* Transição suave caso queira colocar um efeito de hover depois */
+            transition: all 0.3s ease;
+        }
+
+.produto img{
+    width: 100px;
+    border-radius: 5px;
+}
+
+.und{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.produto-box{
+    display: flex;
+    gap: 20PX;
 }

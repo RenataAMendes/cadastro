@@ -1,0 +1,143 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#000;
+    min-height:100vh;
+    color:white;
+    display:flex;
+}
+
+.sidebar{
+    width:300px;
+    padding-top: 17rem;
+    padding-left: 3.3rem;
+    border-right: 3rem solid #07146b;
+    background:linear-gradient(
+        to bottom,
+        #08198d,
+        #2147c7
+    );
+}
+
+.container{
+    flex:1;
+    padding:40px 60px;
+}
+
+h1{
+    margin-left: 35rem;
+    font-size:4rem;
+    margin-bottom:50px;
+    font-weight:bold;
+}
+
+.perfil-content{
+    display:flex;
+    margin-left: 7rem;
+    align-items:flex-start;
+    gap:50px;
+}
+
+.avatar img{
+    width:220px;
+    height:220px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.dados{
+    margin-top:50px;
+}
+
+.dados p{
+    font-size:2rem;
+    margin-bottom:40px;
+}
+
+.botoes{
+    display:flex;
+    gap:30px;
+    margin-left: 18rem;
+    margin-top:50px;
+}
+
+.btn-azul{
+    border:none;
+    width: 15rem;
+    padding:15px 40px;
+    border-radius:40px;
+    color:white;
+    font-size:1.2rem;
+    cursor:pointer;
+    background:linear-gradient(
+        to bottom,
+        #1b4cff,
+        #001b8d
+    );
+    transition:0.3s;
+}
+
+.btn-azul:hover{
+    transform:scale(1.05);
+}
+
+.logout{
+    margin-top:35px;
+    display:flex;
+    margin-left: 17.5rem;
+    justify-content:center;
+}
+
+.btn-vermelho{
+    border:none;
+    padding:15px 60px;
+    border-radius:40px;
+    color:white;
+    font-size:1.2rem;
+    cursor:pointer;
+    background:linear-gradient(
+        to bottom,
+        #ff3131,
+        #990000
+    );
+    transition:0.3s;
+}
+
+.btn-vermelho:hover{
+    transform:scale(1.05);
+}
+
+@media (max-width: 900px){
+
+    body{
+        flex-direction:column;
+    }
+
+    .sidebar{
+        width:100%;
+        height:80px;
+    }
+
+    .perfil-content{
+        flex-direction:column;
+        align-items:center;
+        text-align:center;
+    }
+
+    .dados p{
+        font-size:1.2rem;
+    }
+
+    .botoes{
+        flex-direction:column;
+    }
+
+    h1{
+        font-size:2.5rem;
+    }
+}

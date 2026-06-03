@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maker Room - Usuários</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='produtos.css') }}">
+</head>
+<body>
+    <div class="layout">
+        <main class="content">
+            <div class="content-header">
+                <div class="search-wrapper">
+                    <span>🔍</span>
+                    <input type="search" placeholder="Pesquisar usuário...">
+                </div>
+                <div class="profile">
+                    <img src="{{url_for('static', filename='perfil.png')}}" alt="Avatar">
+                    <div class="profile-name">Renatão Silva</div>
+                </div>
+            </div>
+
+            <section class="card">
+                <div class="card-top">
+                    <h1 class="card-title">Usuários</h1>
+                    <button class="btn-new">+ Novo</button>
+                </div>
+
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nome</th>
+                                <th>E-mail</th>
+                                <th>Função</th>
+                                <th>Matrícula</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>    
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Ana Silva</td>
+                                <td>ana.silva@email.com</td>
+                                <td>Administrador</td>
+                                <td>2026001</td>
+                                <td>
+                                    <span class="action-pill">Editar</span>
+                                    <span class="desativar" style="margin-left: 10px;">Desativar</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Carlos Santos</td>
+                                <td>carlos.santos@email.com</td>
+                                <td>Operador</td>
+                                <td>2026042</td>
+                                <td>
+                                    <span class="action-pill">Editar</span>
+                                    <span class="desativar" style="margin-left: 10px;">Desativar</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Mariana Costa</td>
+                                <td>mariana.costa@email.com</td>
+                                <td>Supervisor</td>
+                                <td>2026115</td>
+                                <td>
+                                    <span class="action-pill">Editar</span>
+                                    <span class="desativar" style="margin-left: 10px;">Desativar</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

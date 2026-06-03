@@ -1,26 +1,22 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maker Room - Cadastro de Produtos</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='cadastro_produtos.css') }}">
-</head>
-<body>
-    <div class="layout">
-        <main class="content">
-            <div class="content-header">
-                <div class="search-wrapper">
-                    <span>🔍</span>
-                    <input type="search" placeholder="Pesquisar Produto...">
-                </div>
-                <div class="profile">
-                    <img src="https://via.placeholder.com/150/0d38a0/ffffff?text=R" alt="Avatar">
-                    <div class="profile-name">Renatão Silva</div>
-                </div>
-            </div>
+{% extends "base.html" %}
 
-            <section class="card">
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='cadastro_produtos.css') }}">
+{% endblock %}
+
+{% block content %}
+    <div class="content-header">
+        <div class="search-wrapper">
+            <span>🔍</span>
+            <input type="search" placeholder="Pesquisar Produto...">
+        </div>
+        <div class="profile">
+            <img src="https://via.placeholder.com/150/0d38a0/ffffff?text=R" alt="Avatar">
+            <div class="profile-name">Renatão Silva</div>
+        </div>
+    </div>
+
+    <section class="card">
                 <div class="card-top">
                     <h1 class="card-title">Cadastro de Produtos</h1>
                 </div>
@@ -32,10 +28,6 @@
                     </div>
 
                     <div class="form-row">
-                        <div class="form-group">
-                            <label for="especificacao">Especificação</label>
-                            <input type="text" id="especificacao" name="especificacao" placeholder="Ex: TI, Eletrônicos">
-                        </div>
                         <div class="form-group">
                             <label for="quantidade">Quantidade</label>
                             <input type="number" id="quantidade" name="quantidade" placeholder="Digite a quantidade" required>
@@ -74,11 +66,9 @@
 
                     <div class="form-actions">
                         <button type="submit" class="btn-salvar">✓ Salvar</button>
+                        <a href="{{ url_for('produtos') }}" class="btn-cancelar">← Voltar</a>
                         <button type="reset" class="btn-cancelar">✕ Cancelar</button>
                     </div>
                 </form>
             </section>
-        </main>
-    </div>
-</body>
-</html>
+{% endblock %}

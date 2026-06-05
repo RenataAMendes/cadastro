@@ -1,13 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro Usuário</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='cadastro_usuario.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='cadastro_usuario.css') }}">
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const homeItem = document.querySelector('aside .menu li.selecionado');
+    if (homeItem) homeItem.classList.remove('selecionado');
+
+    const menuItems = document.querySelectorAll('aside .menu li');
+    menuItems.forEach(item => {
+        if (item.textContent.trim().toUpperCase() === 'USUÁRIOS') {
+            item.classList.add('selecionado');
+        }
+    });
+});
+</script>
+{% endblock %}
+
+{% block content %}
     <div class="container">
         <div class="left">
             <div class="left-content">
@@ -67,5 +77,4 @@
             </div>
         </div>
     </div>
-</body>
-</html>
+{% endblock %}

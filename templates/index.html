@@ -1,12 +1,23 @@
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <title>Maker Room</title>
-</head>
-<body>
-    
+{% extends "base.html" %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const homeItem = document.querySelector('aside .menu li.selecionado');
+    if (homeItem) homeItem.classList.remove('selecionado');
+
+    const menuItems = document.querySelectorAll('aside .menu li');
+    menuItems.forEach(item => {
+        if (item.textContent.trim().toUpperCase() === 'HOME') {
+            item.classList.add('selecionado');
+        }
+    });
+});
+</script>
+{% endblock %}
+
+{% block content %}
     <main>
         <div class="perfil">
             <img src="{{url_for('static', filename='perfil.png')}}" alt="">
@@ -186,5 +197,4 @@
             </div>
         </div>
     </main>
-</body>
-</html>
+{% endblock %}

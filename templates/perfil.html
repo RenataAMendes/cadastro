@@ -1,18 +1,23 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil</title>
-    <link rel="stylesheet" href="/static/perfil.css">
-</head>
-<body>
+{% extends "base.html" %}
 
-    <div class="sidebar">
-        <div class="avatar">
-            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Avatar">
-        </div>
-    </div>
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='perfil.css') }}">
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const homeItem = document.querySelector('aside .menu li.selecionado');
+    if (homeItem) homeItem.classList.remove('selecionado');
+
+    const menuItems = document.querySelectorAll('aside .menu li');
+    menuItems.forEach(item => {
+        if (item.textContent.trim().toUpperCase() === 'PERFÍL') {
+            item.classList.add('selecionado');
+        }
+    });
+});
+</script>
+{% endblock %}
+
+{% block content %}
 
     <div class="container">
 
@@ -39,6 +44,4 @@
         </div>
 
     </div>
-
-</body>
-</html>
+{% endblock %}

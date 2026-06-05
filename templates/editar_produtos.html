@@ -2,6 +2,19 @@
 
 {% block head %}
 <link rel="stylesheet" href="{{ url_for('static', filename='editar_produtos.css') }}">
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const homeItem = document.querySelector('aside .menu li.selecionado');
+    if (homeItem) homeItem.classList.remove('selecionado');
+
+    const menuItems = document.querySelectorAll('aside .menu li');
+    menuItems.forEach(item => {
+        if (item.textContent.trim().toUpperCase() === 'PRODUTOS') {
+            item.classList.add('selecionado');
+        }
+    });
+});
+</script>
 {% endblock %}
 
 {% block content %}

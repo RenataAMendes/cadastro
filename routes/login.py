@@ -23,7 +23,7 @@ def login_routes(app):
             else:
                 flash("E-mail ou senha incorretos.", "danger")
 
-        return render_template("login.html")
+        return render_template("index.html")
 
 
     @app.route("/logout")

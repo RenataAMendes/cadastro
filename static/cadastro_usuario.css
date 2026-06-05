@@ -1,0 +1,122 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #0f172a;
+}
+.container{
+    width: 100000px;
+    height: 945px;
+    display: flex;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+.left{
+    width:45%;
+    background:linear-gradient(135deg,#2563eb,#1d4ed8,#1e3a8a);
+    clip-path:polygon(0 0,100% 0,75% 100%,0 100%);
+    display:flex;
+    align-items:center;
+    padding:40px;
+    color:white;
+}
+.input-group select{
+    width:100%;
+    background:transparent;
+    border:none;
+    border-bottom:2px solid #555;
+    padding:12px 40px 12px 5px;
+    color:white;
+    font-size:16px;
+    outline:none;
+    cursor:pointer;
+}
+.input-group select option{
+    background:#111827;
+    color:white;
+}
+.right{
+    width:55%;
+    background:#111827;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.login-box{
+    width:80%;
+    color:white;
+}
+.login-box h2{
+    text-align:center;
+    font-size:50px;
+    margin-bottom:50px;
+}
+.left-content h1{
+    font-size:48px;
+    margin-bottom:25px;
+    margin-top:-120px;
+}
+.input-group{
+    position:relative;
+    margin-bottom:45px;
+}
+.input-group input{
+    width:100%;
+    background:transparent;
+    border:none;
+    border-bottom:2px solid #555;
+    padding:12px 40px 12px 5px;
+    color:white;
+    font-size:16px;
+    outline:none;
+}
+.input-group i{
+    position:absolute;
+    right:10px;
+    top:12px;
+    color:#555;
+}
+button{
+    width:60%;
+    padding:15px;
+    border:none;
+    border-radius:30px;
+    background:linear-gradient(to right,#2563eb,#1d4ed8);
+    color:white;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+    display:block;
+    margin:20px auto;
+}
+button:hover{
+    transform:scale(1.03);
+}
+.input-group{
+    position:relative;
+}
+
+.input-group i{
+    position:absolute;
+    right:10px;
+    top:50%;
+    transform:translateY(-50%);
+    color:#ccc;
+    pointer-events:none;
+}
+.input-group select{
+    color:#555;
+}
+.left-content p{
+    font-size:22px;
+    line-height:1.2;
+    max-width:380px;
+}

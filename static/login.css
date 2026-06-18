@@ -70,18 +70,41 @@ body{
     background:transparent;
     border:none;
     border-bottom:2px solid #555;
-    padding:12px 40px 12px 5px;
+    padding:12px 70px 12px 5px;
     color:white;
     font-size:16px;
     outline:none;
 }
 
+.cadeado{
+    position: absolute;
+    right: 10px;
+    top: 12px;
+    color: #ccc;
+}
+
+.email{
+    position: absolute;
+    right: 10px;
+    top: 12px;
+    color: #ccc;
+}
+
+.olho{
+    position: absolute;
+    right: 32px;
+    top: 20px;
+    transform: translateY(-50%);
+    color: #ccc;
+    cursor: pointer;
+}
+/* 
 .input-group i{
     position:absolute;
     right:10px;
     top:12px;
     color:#ccc;
-}
+} */
 
 button{
     width:60%;

@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Login</title>
+<head>
 <body>
 
 <div class="container">
@@ -26,11 +27,14 @@
 
             <form method="POST" action="/login">
                 <div class="input-group">
-                    <input type="email" name="email" required>
+                    <input type="email" name="email" placeholder="Email" required>
+                    <i class="fa-solid fa-envelope email"></i>
                 </div>
 
                 <div class="input-group">
-                    <input type="password" name="senha" required>
+                    <input type="password" name="senha"  placeholder="Senha" required>
+                    <i class="fa-solid fa-lock cadeado"></i>
+                    <i class="fa-solid fa-eye-slash olho" id="olho"></i>
                 </div>
 
                 <button type="submit">ENTRAR</button>

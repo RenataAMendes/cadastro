@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <h1 class="card-title">Cadastro de Produtos</h1>
                 </div>
 
-                <form class="form-container">
+                <form class="form-container" method="POST" action="/salvar_produto">
                     <div class="form-group">
                         <label for="nome">Nome do Produto</label>
                         <input type="text" id="nome" name="nome" placeholder="Digite o nome do produto" required>
@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
                     <div class="form-actions">
                         <button type="submit" class="btn-salvar">✓ Salvar</button>
-                        <a href="{{ url_for('produtos') }}" class="btn-cancelar">← Voltar</a>
+                        <a href="{{ url_for('cadastro_produtos') }}" class="btn-cancelar">← Voltar</a>
                         <button type="reset" class="btn-cancelar">✕ Cancelar</button>
                     </div>
                 </form>
